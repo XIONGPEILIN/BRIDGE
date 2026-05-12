@@ -10,22 +10,52 @@
 - **Discrete Geometric Gate**: Token-level PE routing that lets subject tokens borrow background-anchored coordinates near fusion regions or keep subject-centric coordinates for geometry freedom
 - **Lightweight**: 13.31M GateBlock parameters (vs ~1.13B for ControlNet-style branches)
 
-## Model Weights
+## Download
 
-Pre-trained weights are available on Hugging Face:
+### 1. Base Model (Required)
+
+BRIDGE is built on top of Qwen-Image-Edit-2511. You must download it first:
+
+```bash
+# Coming soon: auto-download in inference script
+# Model: https://huggingface.co/Qwen/Qwen-Image-Edit-2511
+```
+
+### 2. BRIDGE Model Weights
+
+Pre-trained BRIDGE weights (STE GateBlocks + LoRA) are available on Hugging Face:
 
 ```
 https://huggingface.co/PANDATREE/BRIDGE
 ```
 
-Download `model.safetensors` and place it in the project root, then load with:
+Download `model.safetensors`:
 
 ```python
 from safetensors.torch import load_file
 state = load_file("model.safetensors")
+
+# The checkpoint contains:
+# - pipe.ste.* → GateBlocks (Discrete Geometric Gate)
+# - lora_*     → LoRA adapters (rank 512)
 ```
 
-**Base model** (required): [`Qwen/Qwen-Image-Edit-2511`](https://huggingface.co/Qwen/Qwen-Image-Edit-2511)
+### 3. Dataset
+
+The BRIDGE training/evaluation dataset (with `global_caption`/`local_caption`) is available on Hugging Face:
+
+```
+https://huggingface.co/datasets/PANDATREE/BRIDGE
+```
+
+**Contents:**
+- `dataset_qwen_pe_reversed.json` — 42,425 training pairs with captions
+- `dataset_qwen_pe_top1000_captioned.json` — 1,000 evaluation pairs with captions
+- `fixed_images/` — edited results (guided-filter blended)
+- `ref_gt_fixed/` / `ref_gt_fixed_crop/` — reference ground truth
+- `fixed_masks/` — editing region masks
+
+> **Note:** `target_images/` (original edited outputs from Nano-Banana) are not included in this repo. Please obtain them from [Apple Pico-Banana-400K](https://github.com/apple/pico-banana-400k) (CC BY-NC-ND 4.0).
 
 ## Requirements
 
@@ -39,10 +69,13 @@ pip install -r requirements.txt
 ### Gradio Demo
 
 ```bash
+# Place model.safetensors at:
+# train/Qwen-Image-Edit-2511_lora-rank512-cfg/step-28000.safetensors
+
 python apps_demo/app_gradio_multi.py
 ```
 
-### Inference Script
+### Inference
 
 See `DiffSynth-Studio/examples/qwen_image/model_training/train.py` for training,
 and the `evaluation/` scripts for metrics computation.
@@ -51,14 +84,6 @@ and the `evaluation/` scripts for metrics computation.
 
 ```bash
 bash training/Qwen-Image-Edit-2511.sh
-```
-
-## Dataset
-
-The BRIDGE training/evaluation dataset is available on Hugging Face:
-
-```
-https://huggingface.co/datasets/PANDATREE/BRIDGE
 ```
 
 ## Citation
