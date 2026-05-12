@@ -1,0 +1,13 @@
+torch>=2.0.0
+torchvision
+diffusers>=0.30.0
+transformers>=4.40.0
+accelerate>=0.30.0
+safetensors>=0.4.0
+gradio>=4.0.0
+Pillow
+opencv-python
+numpy
+tqdm
+requests
+einops
