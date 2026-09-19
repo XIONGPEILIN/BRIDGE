@@ -48,7 +48,11 @@
     "input_mask.png": "c20f113afba0da89952c710571e2f8a8e33e66c583de032a13ec850d38c9445a",
     "input_subject_01.png": "f9a628ab45c0022db24ac9b029804ae1f5a5a2944e9d500c97268090de7b082e",
     "input_subject_02.png": "276adc920ba284efeb4a6ebddf4f86950cf8cbf6e84f9bdb4b8256546ed0eb48",
-    "comparison.png": "7284e75a0028224091b3cd3e5de4a10137c7eb220777dc92c798b30d3582adfb"
+    "comparison.png": "7284e75a0028224091b3cd3e5de4a10137c7eb220777dc92c798b30d3582adfb",
+    "sparse_main_mask_outline.png": "143ff5ce8fbc94a24813237ee59c1eb002b0f26c05abf9f3bc6b903fa658002e",
+    "sparse_sub_mask_outline.png": "1624374c1cbb8b298e7b80914f54f06b734a120a314e0da22aad7268ea674486",
+    "dense_main_mask_outline.png": "5e34dca0366bc3c17b06c4a2cda79d803c4d418c7c1ecf411cad6d73341d2ed2",
+    "dense_sub_mask_outline.png": "84d2d3490544544428cc6925d534fb730e60070c5981b086c5ef5ebd1b954db4"
   },
   "ai_generated_outputs": true,
   "new_generation": false,
@@ -63,5 +67,6 @@
     "dense_tokens": 1302,
     "sparse_tokens": 618,
     "sparse_pe_indices_exact_mask": true
-  }
+  },
+  "outline_visualization": "Original saved red submitted-mask boundary overlay; display aid, not a generated object boundary. PNGs copied unchanged."
 }

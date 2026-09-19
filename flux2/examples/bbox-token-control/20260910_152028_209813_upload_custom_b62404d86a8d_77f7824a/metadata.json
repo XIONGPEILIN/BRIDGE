@@ -47,10 +47,15 @@
     "input_background.png": "ed10cd22a88da4f6e5bab34eda7be08d48160d8c2fd628628ae6a42305172506",
     "input_mask.png": "558e4e58d8b0be03e576bfc63a6c17daa39ac36004a60b65e406752a586eaf5d",
     "input_subject_01.png": "f9a628ab45c0022db24ac9b029804ae1f5a5a2944e9d500c97268090de7b082e",
-    "input_subject_02.png": "276adc920ba284efeb4a6ebddf4f86950cf8cbf6e84f9bdb4b8256546ed0eb48"
+    "input_subject_02.png": "276adc920ba284efeb4a6ebddf4f86950cf8cbf6e84f9bdb4b8256546ed0eb48",
+    "sparse_main_mask_outline.png": "bc489eaeb139f649c08b3261713426649eb6ea5910192ab7e18ec62860a02546",
+    "sparse_sub_mask_outline.png": "a836d37cbcf3b28fe984c04c1f0fdff134c74be943c2d2faa2997300f7ba2ded",
+    "dense_main_mask_outline.png": "2e237347e64ebcf482e59183e86144b9f2606609dfd985b3d65d31a3b732f943",
+    "dense_sub_mask_outline.png": "648f6f05a0ce5f7aa770870e93bedd188616bb683d272c11a5c9c5223aa8705d"
   },
   "ai_generated_outputs": true,
   "new_generation": false,
   "input_source": "custom_upload",
-  "changes": "Both sub-token support and PE candidate pairs change from bbox-wide to mask-only; not pure token-count ablation."
+  "changes": "Both sub-token support and PE candidate pairs change from bbox-wide to mask-only; not pure token-count ablation.",
+  "outline_visualization": "Original saved red submitted-mask boundary overlay; display aid, not a generated object boundary. PNGs copied unchanged."
 }
