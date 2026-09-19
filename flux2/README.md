@@ -88,7 +88,7 @@ checkpoint choice is independent of the inference layout. Draw/upload a mask
 with some interior bbox cells excluded. The ordinary launcher without this flag
 still compares separately trained Sparse and BBox weights. All modes use 50 steps.
 
-[All six approved custom-input results and their settings](examples/bbox-token-control/README.md)
+[All five approved custom-input results and their settings](examples/bbox-token-control/README.md)
 are available, with no internal-dataset cases. No new GPU inference was run for
 packaging this portable launcher option.
 

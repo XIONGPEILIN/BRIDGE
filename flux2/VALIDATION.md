@@ -8,7 +8,7 @@
 - 30,926 generated subject conditions exist; generation records identify
   `Qwen/Qwen-Image-Edit-2511`. Archives contain 54,413 assets / 31,403,314,841
   payload bytes including missing crop/background/mask dependencies.
-- Six custom-input same-BBox-weight comparisons included; all three internal
+- Five custom-input same-BBox-weight comparisons included; all three internal
   dataset cases excluded. Original images copied without pixel modification.
 - Training/cache/bucketing/converter/preparation/launcher `--help` all passed;
   training shell syntax passed. **Nine CPU tests passed**, including checked
