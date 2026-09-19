@@ -8,7 +8,24 @@
 
 - **BridgePath**: Two-path generation where Main Path preserves background context and Subject Path generates editable content from independent noise
 - **Discrete Geometric Gate**: Token-level PE routing that lets subject tokens borrow background-anchored coordinates near fusion regions or keep subject-centric coordinates for geometry freedom
-- **Lightweight**: 13.31M GateBlock parameters (vs ~1.13B for ControlNet-style branches)
+- **Original Qwen implementation**: 13.31M GateBlock parameters (vs ~1.13B for ControlNet-style branches); this count is not the size of the FLUX full-transformer checkpoints.
+
+## FLUX.2 Klein 9B update
+
+BRIDGE now also includes two trained **FLUX.2 Klein 9B** variants, using the same
+main/subject paths and discrete positional-encoding routing:
+
+- **Sparse / Mask**: mask-selected sub tokens with mask-based PE exchange.
+- **Dense / BBox**: a full bbox sub grid with bbox-wide PE exchange.
+
+Both step-1400 **BF16 ScheduleFree eval** checkpoints are released alongside the
+original Qwen weights on [Hugging Face](https://huggingface.co/PANDATREE/BRIDGE/tree/main/flux2-klein-9b).
+See **[FLUX setup, Gradio comparison, subject inputs, sub-token control, and examples](flux2/README.md)**.
+Generation uses **50 inference steps**. The FLUX weights are full transformer
+states, not Qwen-compatible LoRA adapters, and carry the FLUX Non-Commercial
+License. The original Qwen code and weight file remain available unchanged.
+
+The sections below describe the original **Qwen** release.
 
 ## Download
 
@@ -99,4 +116,6 @@ bash training/Qwen-Image-Edit-2511.sh
 
 ## License
 
-Apache 2.0
+The original code release is Apache 2.0. The newly added FLUX model weights are
+subject to the upstream [FLUX Non-Commercial License](flux2/LICENSE-FLUX.md);
+see [the FLUX notice](flux2/NOTICE-FLUX.md). Apache 2.0 does not relicense those weights.

@@ -1,0 +1,58 @@
+{
+  "01 正面｜右下角风化石台": {
+    "slug": "01_front_view",
+    "reference_order": ["front.jpeg", "back.jpeg"],
+    "location": "画面右下角前景的低矮风化石台上。",
+    "mask_guide": "覆盖人物全身和脚下石台；石台略宽于双脚，头顶和身体两侧留少量空间。",
+    "prompt": "Picture 2 is the front-view reference of the subject, and Picture 3 is the back-view reference of the same subject. Place the subject standing naturally on top of a low weathered stone pedestal in the lower-right foreground of Picture 1, facing the camera in a clear full-body front view, with both feet firmly resting on the stone surface. Preserve the subject's identity, hairstyle, clothing, colors, and body proportions. Integrate the pedestal naturally into the scene and match the perspective, scale, lighting, contact shadows, and visual style of the background."
+  },
+  "02 侧面｜右下角风化石台": {
+    "slug": "02_side_view",
+    "reference_order": ["front.jpeg", "back.jpeg"],
+    "location": "画面右下角前景的低矮风化石台上，人物朝画面中心站立。",
+    "mask_guide": "覆盖侧面人物全身和脚下石台；人物部分可略窄，石台部分略宽于人物脚部。",
+    "prompt": "Picture 2 is the front-view reference of the subject, and Picture 3 is the back-view reference of the same subject. Place the subject standing on top of a low weathered stone pedestal in the lower-right foreground of Picture 1, shown in a clear full-body left-facing side profile and looking toward the center of the scene, with both feet firmly resting on the pedestal. Preserve the subject's identity, hairstyle, outfit, colors, and proportions. Integrate the pedestal naturally and match the background perspective, lighting, and contact shadows."
+  },
+  "03 背面｜右下角风化石台": {
+    "slug": "03_back_view",
+    "reference_order": ["front.jpeg", "back.jpeg"],
+    "location": "画面右下角前景的低矮风化石台上，人物背对镜头并朝向场景内部。",
+    "mask_guide": "覆盖人物全身和脚下石台，范围与正面测试基本一致。",
+    "prompt": "Picture 2 is the front-view reference of the subject, and Picture 3 is the back-view reference of the same subject. Place the subject standing on top of a low weathered stone pedestal in the lower-right foreground of Picture 1, facing away from the camera in a clear full-body back view and looking into the scene, with both feet firmly resting on the stone surface. Accurately preserve the back details of the hairstyle and clothing. Integrate the pedestal naturally and match the perspective, scale, lighting, and contact shadows of the background."
+  },
+  "04 水面｜半浸没平坦石板": {
+    "slug": "04_standing_on_water",
+    "reference_order": ["front.jpeg", "back.jpeg"],
+    "location": "画面右下角前景浅水中一块半浸没的平坦石板上。",
+    "mask_guide": "覆盖人物全身和半浸没石板；石板周围加宽，为水波、倒影和水面接触区域留空间。",
+    "prompt": "Picture 2 is the front-view reference of the subject, and Picture 3 is the back-view reference of the same subject. Place the subject standing naturally on top of a flat stone slab partially submerged in the shallow water in the lower-right foreground of Picture 1, shown in a three-quarter front view, with both feet firmly supported by the stone. Add realistic ripples, reflections, water displacement, and soft reflected light around the partially submerged slab. Preserve the subject's identity, outfit, colors, and proportions while matching the scene perspective and lighting."
+  },
+  "05 高兴｜右下角石质展台": {
+    "slug": "05_happy",
+    "reference_order": ["front.jpeg", "back.jpeg", "face.jpeg"],
+    "location": "画面右下角前景的低矮石质展台上。",
+    "mask_guide": "覆盖人物全身和脚下展台；头部不要太窄，展台略宽于人物。",
+    "prompt": "Picture 2 is the front-view reference of the subject, Picture 3 is the back-view reference, and Picture 4 is the close-up facial reference. Place the subject standing naturally on top of a low stone display pedestal in the lower-right foreground of Picture 1, facing the camera with a joyful expression, a warm natural smile, bright eyes, and relaxed body language. Keep both feet firmly supported by the pedestal. Preserve the subject's facial identity, hairstyle, outfit, colors, and proportions. Integrate the pedestal naturally and match the background perspective, lighting, and contact shadows."
+  },
+  "06 伤心｜右下角石质展台": {
+    "slug": "06_sad",
+    "reference_order": ["front.jpeg", "back.jpeg", "face.jpeg"],
+    "location": "画面右下角前景的低矮石质展台上。",
+    "mask_guide": "覆盖人物全身和脚下展台；头部与肩部稍微留宽，以容纳低头和收拢姿态。",
+    "prompt": "Picture 2 is the front-view reference of the subject, Picture 3 is the back-view reference, and Picture 4 is the close-up facial reference. Place the subject standing on top of a low stone display pedestal in the lower-right foreground of Picture 1, facing the camera with a clearly sad expression, slightly lowered eyes, subtly raised inner eyebrows, and restrained sorrowful body language. Keep both feet firmly supported by the pedestal. Preserve the subject's facial identity, hairstyle, outfit, colors, and proportions. Integrate the pedestal naturally and match the background perspective, lighting, and contact shadows."
+  },
+  "07 愤怒｜右下角石质展台": {
+    "slug": "07_angry",
+    "reference_order": ["front.jpeg", "back.jpeg", "face.jpeg"],
+    "location": "画面右下角前景的低矮石质展台上。",
+    "mask_guide": "覆盖人物全身和脚下展台；身体两侧稍微留宽，以容纳更有力量感的站姿。",
+    "prompt": "Picture 2 is the front-view reference of the subject, Picture 3 is the back-view reference, and Picture 4 is the close-up facial reference. Place the subject standing firmly on top of a low stone display pedestal in the lower-right foreground of Picture 1, facing the camera with an angry expression, furrowed eyebrows, focused eyes, a tense jaw, and controlled confrontational body language. Keep both feet firmly supported by the pedestal. Preserve the subject's facial identity, hairstyle, outfit, colors, and proportions. Integrate the pedestal naturally and match the background perspective, lighting, and contact shadows."
+  },
+  "08 综合｜浅水石板侧身回头": {
+    "slug": "08_comprehensive",
+    "reference_order": ["front.jpeg", "back.jpeg", "face.jpeg"],
+    "location": "画面右下角前景浅水中半浸没的平坦石板上，人物左向三分之二侧身并回头。",
+    "mask_guide": "覆盖侧身人物全身和半浸没石板，并为回头姿态、石板周围水波及倒影留空间。",
+    "prompt": "Picture 2 is the front-view reference of the subject, Picture 3 is the back-view reference, and Picture 4 is the close-up facial reference. Place the subject standing on top of a flat stone slab partially submerged in the shallow water in the lower-right foreground of Picture 1, shown in a left-facing three-quarter side view while looking back toward the camera with a joyful expression. Keep both feet firmly supported by the stone slab. Add physically plausible ripples, reflections, water displacement, and reflected water light around the slab. Preserve the subject's identity, facial features, hairstyle, clothing details, colors, and body proportions, and match the background perspective and illumination."
+  }
+}

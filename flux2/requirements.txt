@@ -1,0 +1,10 @@
+# Source and dependency versions of the inspected project environment.
+# Install the CUDA-compatible PyTorch build separately for your machine.
+diffusers @ git+https://github.com/huggingface/diffusers.git@6a43fb6e8aa1c0ba06608577764fe60d80c7cd6d
+transformers==5.10.1
+accelerate==1.14.0
+huggingface-hub==1.17.0
+gradio==6.20.0
+numpy==2.4.6
+Pillow==12.2.0
+safetensors>=0.7.0

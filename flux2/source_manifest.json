@@ -1,0 +1,75 @@
+{
+  "source_repository": "https://github.com/XIONGPEILIN/subdflux2",
+  "source_head": "bb1e7c9792173963acfe53e65c0b6b42ea81c2e6",
+  "source_worktree": "Includes locally modified and untracked Gradio files; per-file hashes are authoritative",
+  "diffusers_commit": "6a43fb6e8aa1c0ba06608577764fe60d80c7cd6d",
+  "diffusers_content_changes": false,
+  "new_packaging_files": [
+    "app.py",
+    "requirements.txt",
+    "README.md",
+    "tests/test_release_contract.py"
+  ],
+  "files": {
+    "flux2_klein_pe_exchange.py": {
+      "source_sha256": "1127109e434bee09ca0cec09539bdd7bda357d18890420d99ab02f616a1b2d59",
+      "release_sha256": "1127109e434bee09ca0cec09539bdd7bda357d18890420d99ab02f616a1b2d59",
+      "changes": "none"
+    },
+    "flux2_klein_pe_soft_exchange.py": {
+      "source_sha256": "239c3c88b4bb341843cab52213b7fedd2bae98da5a66810f1cadb7b61f8a592b",
+      "release_sha256": "239c3c88b4bb341843cab52213b7fedd2bae98da5a66810f1cadb7b61f8a592b",
+      "changes": "none"
+    },
+    "flux2_klein_sparse_sub_utils.py": {
+      "source_sha256": "0fa48e760bcdba4e33b53ef54a9ec1c39599214ea4da70131a5434db09cb1a87",
+      "release_sha256": "0fa48e760bcdba4e33b53ef54a9ec1c39599214ea4da70131a5434db09cb1a87",
+      "changes": "none"
+    },
+    "gradio_compare_worker.py": {
+      "source_sha256": "fcbe6ac316846f57f26f5846ab4843a899fcb6398726212f338b2a10b5f910d2",
+      "release_sha256": "fcbe6ac316846f57f26f5846ab4843a899fcb6398726212f338b2a10b5f910d2",
+      "changes": "none"
+    },
+    "gradio_subject_backend.py": {
+      "source_sha256": "46ed9a5e9dbbf52feb35087a367eb69b024b3d2de9bf171f65a93fdb0a5785d9",
+      "release_sha256": "46ed9a5e9dbbf52feb35087a367eb69b024b3d2de9bf171f65a93fdb0a5785d9",
+      "changes": "none"
+    },
+    "gradio_subject_bbox_backend.py": {
+      "source_sha256": "b664255a4f29d021e483754d11d55f030aa0e93b9baf83b39ce1cc320e5c99db",
+      "release_sha256": "b664255a4f29d021e483754d11d55f030aa0e93b9baf83b39ce1cc320e5c99db",
+      "changes": "none"
+    },
+    "gradio_subject_compare_app.py": {
+      "source_sha256": "028b56c6bc09f9b566fe96054ccbb1517c211e5f581ca9a9fd94bb22e06e299b",
+      "release_sha256": "556376ece22b397ee1e487954a4cdb8cd00e723c0a5f90320d5b62fcd7a3be01",
+      "changes": "Disable host-specific Docker-stop defaults only"
+    },
+    "gradio_subject_inputs.py": {
+      "source_sha256": "aa6a3601b5fa550d5535c6c5bb9c1a2a8a6190c367ce5baf94f4898cf837c284",
+      "release_sha256": "aa6a3601b5fa550d5535c6c5bb9c1a2a8a6190c367ce5baf94f4898cf837c284",
+      "changes": "none"
+    },
+    "gradio_test_prompts.json": {
+      "source_sha256": "56138a72f7323573aae99ec9627cfcda6c5a96cfd17f4dfddc6b2aa160f417ff",
+      "release_sha256": "56138a72f7323573aae99ec9627cfcda6c5a96cfd17f4dfddc6b2aa160f417ff",
+      "changes": "none"
+    },
+    "qwen_pe_exchange_sparse_model.py": {
+      "source_sha256": "f7a7a9aede89231a967592aeca37f990ddb5aab33bce57511912b175332ad7eb",
+      "release_sha256": "f7a7a9aede89231a967592aeca37f990ddb5aab33bce57511912b175332ad7eb",
+      "changes": "none"
+    },
+    "qwen_pe_exchange_sparse_soft_model.py": {
+      "source_sha256": "a8f33f64e208aefa28438c2703a8252929fb95cb6affd562da9f59a1d88a8f4e",
+      "release_sha256": "a8f33f64e208aefa28438c2703a8252929fb95cb6affd562da9f59a1d88a8f4e",
+      "changes": "none"
+    },
+    "subject_driven_generation_pipeline.py": {
+      "source_sha256": "cd0044ee523cd8efefa526bdbda277db45d518fe49e3a7ecbd5582a633c12ddf",
+      "release_sha256": "cd0044ee523cd8efefa526bdbda277db45d518fe49e3a7ecbd5582a633c12ddf",
+      "changes": "none"
+    }
+  }
+}

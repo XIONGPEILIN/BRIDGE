@@ -1,0 +1,97 @@
+{
+  "created_at": "2026-09-04T17:54:56.418303+09:00",
+  "ai_generated_outputs": true,
+  "new_generation_for_release": false,
+  "example_type": "no-mask full-size sub comparison; not a token-removal ablation",
+  "rng_provenance": "CUDA generator on CUDA, as implemented in the source Gradio backend",
+  "inputs_redistributed": false,
+  "prompt": "Picture 1 is the background image. A blonde female knight stands securely on a low natural rock in the shallow water, shown directly from the front in a clear full-body view. Her face, shoulders, torso, hips, knees, and both feet point toward the camera. She raises her unsheathed longsword diagonally upward in her right hand as she begins a controlled sword swing; the complete blade remains clearly visible beside her body and does not cross her face. Her left arm balances the motion naturally. She wears worn dark green-black medieval plate armor, black leather trousers, steel knee guards, and tall dark boots. Keep exactly one woman with two natural arms, two hands, and one sword, with both boots firmly supported by the rock.",
+  "models": {
+    "sparse-mask": {
+      "checkpoint": "PANDATREE/BRIDGE/flux2-klein-9b/sparse-mask/checkpoint-1400",
+      "source_metadata_sha256": "ed8ad78a329e0bb4c338120c3dfc8b459f166aa871af31bf5af71689d6ff8c98",
+      "seed": 0,
+      "guidance_scale": 4.0,
+      "guidance_rescale": 0.0,
+      "use_cfg_zero_star": true,
+      "cfg_zero_star_zero_init_steps": 1,
+      "num_inference_steps": 50,
+      "snapped_width": 1024,
+      "snapped_height": 1024,
+      "subject_image_count": 2,
+      "subject_sizes": [
+        {
+          "width": 832,
+          "height": 1248
+        },
+        {
+          "width": 832,
+          "height": 1248
+        }
+      ],
+      "sub_token_count": 4096,
+      "crop_token_count": 4096,
+      "crop_bounds": [
+        0,
+        64,
+        0,
+        64
+      ],
+      "sub_region_mode": "mask",
+      "use_sparse_sub_branch": true,
+      "pe_exchange_region": "mask",
+      "sub_id_spatial_mode": "global",
+      "dtype": "torch.bfloat16",
+      "mask_used": false,
+      "full_sub_without_mask": true,
+      "base_transformer_loaded": false,
+      "experiment_mode": "hard_exchange"
+    },
+    "dense-bbox": {
+      "checkpoint": "PANDATREE/BRIDGE/flux2-klein-9b/dense-bbox/checkpoint-1400",
+      "source_metadata_sha256": "8d6aa83fc1d1f5788333c87399870183c68c3d58da7bd948d0ab8fbd82359e97",
+      "seed": 0,
+      "guidance_scale": 4.0,
+      "guidance_rescale": 0.0,
+      "use_cfg_zero_star": true,
+      "cfg_zero_star_zero_init_steps": 1,
+      "num_inference_steps": 50,
+      "snapped_width": 1024,
+      "snapped_height": 1024,
+      "subject_image_count": 2,
+      "subject_sizes": [
+        {
+          "width": 832,
+          "height": 1248
+        },
+        {
+          "width": 832,
+          "height": 1248
+        }
+      ],
+      "sub_token_count": 4096,
+      "crop_token_count": 4096,
+      "crop_bounds": [
+        0,
+        64,
+        0,
+        64
+      ],
+      "sub_region_mode": "bbox",
+      "use_sparse_sub_branch": false,
+      "pe_exchange_region": "bbox",
+      "sub_id_spatial_mode": "global",
+      "dtype": "torch.bfloat16",
+      "mask_used": false,
+      "full_sub_without_mask": true,
+      "base_transformer_loaded": false,
+      "experiment_mode": "hard_exchange"
+    }
+  },
+  "image_sha256": {
+    "sparse_main.png": "d9e5f1f2630f6bb6508fd1a7ab7f332efd66c7b058769dc0dae1970aa69f497b",
+    "sparse_sub.png": "13354e7a87a313c05e6238e7df3722c7c69c25c7586c905957ec9a7c8a9ba7ad",
+    "bbox_main.png": "3c3e77bc4bfb5706658043859c5c1751487822ffa9a9b9aa20839da01f715d4f",
+    "bbox_sub.png": "db3d8404c056d544ee12e3072c66852588e8d6c4047cf2736e209cc513288b88"
+  }
+}
