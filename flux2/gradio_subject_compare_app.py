@@ -318,6 +318,7 @@ def build_demo(
     prompt_catalog: dict[str, dict[str, Any]],
     *,
     no_mask_full_sub: bool = False,
+    bbox_protocol_compare: bool = False,
 ):
     import gradio as gr
 
@@ -464,6 +465,8 @@ def build_demo(
             "enabled or disabled. Both models use 50 steps. "
             "Choose a local preset, then upload/draw the target region or use the configured No Mask mode."
         )
+        if bbox_protocol_compare:
+            gr.Markdown("**Same BBox-trained weights in both lanes.** Left: mask-selected Sub tokens and PE pairs; right: full bbox Sub tokens and PE pairs. Draw/upload a non-rectangular mask to compare cropping; No Mask retains the whole image.")
         status = gr.Textbox(
             label="Model Status",
             value=runtime.ready_status(),
@@ -570,8 +573,8 @@ def build_demo(
 
         gr.Markdown("## Main-image comparison")
         with gr.Row():
-            sparse_main = gr.Image(type="pil", label="Sparse Model")
-            bbox_main = gr.Image(type="pil", label="Dense BBox Model")
+            sparse_main = gr.Image(type="pil", label="BBox weights / cropped Sub" if bbox_protocol_compare else "Sparse Model")
+            bbox_main = gr.Image(type="pil", label="BBox weights / dense Sub" if bbox_protocol_compare else "Dense BBox Model")
         gr.Markdown("## Sub-branch outputs")
         with gr.Row():
             sparse_sub = gr.Image(type="pil", label="Sparse Sub")

@@ -4,6 +4,8 @@ This directory adds the FLUX implementation alongside the original Qwen
 implementation; it does not replace the Qwen code or weights.
 Both use a main path, an independently denoised subject path, and learned
 discrete positional-encoding routing. The backbone and checkpoint format differ.
+**It is the same method: Qwen uses LoRA training, while FLUX uses full-transformer
+training, with learned gates in both.** See [the method figure](../assets/method.png).
 
 ## Models
 
@@ -71,6 +73,25 @@ Loading through these backends restores the gate modules explicitly and checks
 for missing/unexpected trained parameters. Loading only a standard base
 Diffusers transformer is insufficient.
 
+## BBox-weight protocol comparison
+
+To reproduce the **same BBox weights, different sub-token support** comparison:
+
+```bash
+.venv/bin/python app.py --weights-dir ./weights --sparse-gpu 0 --bbox-gpu 1 \
+  --bbox-protocol-compare
+```
+
+Both workers load the released BBox checkpoint. The left uses sparse sub tokens
+and mask PE pairs; the right uses full bbox sub tokens and bbox PE pairs. The
+checkpoint choice is independent of the inference layout. Draw/upload a mask
+with some interior bbox cells excluded. The ordinary launcher without this flag
+still compares separately trained Sparse and BBox weights. All modes use 50 steps.
+
+[All six approved custom-input results and their settings](examples/bbox-token-control/README.md)
+are available, with no internal-dataset cases. No new GPU inference was run for
+packaging this portable launcher option.
+
 ## Subject inputs and sub-token control
 
 The UI accepts a background, a prompt, up to three subject-reference images,
@@ -91,9 +112,10 @@ input mask does not remove interior tokens in this variant. Neither variant
 initializes sub by slicing main/background token values, and PE routing changes
 positional embeddings rather than exchanging latent values.
 
-This documents the existing mask-driven sparse-token mechanism and the authors'
-qualitative observation. It is not a new arbitrary-token-cut UI, a quantitative
-ablation result, or a guarantee of pixel-exact geometry control.
+This documents the mask-driven sparse-token mechanism, including application
+of sparse inference to **BBox-trained weights**, as in the linked same-weight
+experiments. It is not a quantitative benchmark or a guarantee of pixel-exact
+geometry control. Both sub-token support and PE candidate support change.
 
 With **No Mask (full-size Sub)**, both models keep a full-image sub branch.
 The Gradio default is global sub spatial IDs; selecting local IDs retains
@@ -123,20 +145,20 @@ the output at the same seed.
 
 ## Subject-driven training data
 
-The current project has a subject-driven training path, distinct from the old
-Qwen coarse-edit dataset. Its documented manifest is
-`dataset_qwen_subject_driven_best_of_three_mapped_abs_train.json`. In the raw
-loader, `image` supplies the target, `ref_gt` the background, and `back_mask`
-the region mask; the subject reference defaults to `ref_gt_crop`, with a fallback
-to the first `edit_image` entry.
+The FLUX cached-training dataset adds a subject condition generated with
+`Qwen/Qwen-Image-Edit-2511` to the earlier editing data. The released portable
+manifests preserve the actual 27,834/3,092 train/test split. The cache producer
+reads `image` as target, `edit_image` as background, `generated_subject_image`
+as subject condition, `sub` as the sub target, and `back_mask` as region mask.
 The cached sparse training path requires **`subcrop_sparse_*` tensors from the
 subject crop**, never background-token slices. Dense-bbox training uses the
 complete subject crop. The sub branch is at positional t=20.
 
-This release adds model weights, inference code and examples, **not a new dataset
-upload**. Do not assume that the old `PANDATREE/BRIDGE` dataset already contains
-the newer subject-driven training data. A separately verified, portable data
-manifest and redistribution scope are still needed for a dataset release.
+See the [HF subject-condition extension](https://huggingface.co/datasets/PANDATREE/BRIDGE/tree/main/subject_condition)
+and [complete training instructions](TRAINING.md) for data download, safe archive
+extraction, cache creation, full training and eval checkpoint export. Original
+target images remain externally obtained; missing original public crop/mask/
+background dependencies are included in the extension.
 
 ## Verification and provenance
 
@@ -150,9 +172,11 @@ PYTHONPATH=. .venv/bin/python -m unittest discover -s tests -v
 ```
 
 These are CPU unit/shape checks, not a new 50-step GPU inference benchmark.
-The only public-copy changes to the existing comparison code are disabled
-host-specific Docker-stop defaults; `app.py` provides portable paths and does
-not invoke the watchdog. Model, gate, denoising, and RNG code is retained.
+Public-copy changes disable host-specific Docker-stop defaults, add accurate
+same-weight comparison labels and provide a portable launcher. Model, gate,
+denoising and RNG code is retained. The converter's root path is made portable;
+training/cache logic is copied unchanged. No training or GPU inference was
+executed as part of this publication.
 
 ## License
 

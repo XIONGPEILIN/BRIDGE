@@ -1,5 +1,28 @@
 # Release checks (2026-09-19)
 
+## Subject-condition and gallery extension
+
+- Exact 27,834/3,092 train/test ordering, prompts and retained non-path values
+  checked against source manifests. All non-target image paths resolve to either
+  original HF assets or explicitly inventoried archive members.
+- 30,926 generated subject conditions exist; generation records identify
+  `Qwen/Qwen-Image-Edit-2511`. Archives contain 54,413 assets / 31,403,314,841
+  payload bytes including missing crop/background/mask dependencies.
+- Six custom-input same-BBox-weight comparisons included; all three internal
+  dataset cases excluded. Original images copied without pixel modification.
+- Training/cache/bucketing/converter/preparation/launcher `--help` all passed;
+  training shell syntax passed. **Nine CPU tests passed**, including checked
+  archive extraction, absolute-path preparation and refusal to overwrite
+  different existing files.
+- Same-weight Gradio UI builds with **43 components** and explicit labels.
+  Public launcher routes both arms to BBox weights while retaining independent
+  sparse and dense layouts. This option has not been GPU-replayed during release.
+- Paper method figure is copied unchanged. Qwen LoRA versus FLUX full training
+  is documented as an implementation difference of the same method.
+- No new training, cache generation or image inference was launched.
+
+## Initial model release checks
+
 - Both step-1400 eval exports: all safetensors shard indexes, offsets, tensor
   sizes and BF16 dtypes checked; full weight-file SHA-256 checksums computed.
 - Both exports match the custom transformer's complete **714 state-tensor keys

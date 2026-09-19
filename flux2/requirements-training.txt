@@ -1,0 +1,5 @@
+-r requirements.txt
+deepspeed
+prodigy-plus-schedule-free==2.0.1
+wandb
+tensorboard

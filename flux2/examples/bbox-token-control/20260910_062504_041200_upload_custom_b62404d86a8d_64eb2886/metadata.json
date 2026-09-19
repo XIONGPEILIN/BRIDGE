@@ -1,0 +1,56 @@
+{
+  "source_run": "20260910_062504_041200_upload_custom_b62404d86a8d_64eb2886",
+  "checkpoint": "PANDATREE/BRIDGE/flux2-klein-9b/dense-bbox/checkpoint-1400",
+  "weights_shared_across_arms": true,
+  "prompt": "Picture 1 is the background image. A blonde female knight stands securely on a low natural rock in the shallow water, shown directly from the front in a clear full-body view. Her face, shoulders, torso, hips, knees, and both feet point toward the camera. She raises her unsheathed longsword diagonally upward in her right hand as she begins a controlled sword swing; the complete blade remains clearly visible beside her body and does not cross her face. Her left arm balances the motion naturally. She wears worn dark green-black medieval plate armor, black leather trousers, steel knee guards, and tall dark boots. Keep exactly one woman with two natural arms, two hands, and one sword, with both boots firmly supported by the rock.",
+  "sparse": {
+    "guidance_scale": 4.0,
+    "seed": 0,
+    "num_inference_steps": 50,
+    "sub_token_count": 222,
+    "crop_token_count": 300,
+    "use_sparse_sub_branch": true,
+    "pe_exchange_region": "mask",
+    "sub_id_spatial_mode": "global",
+    "use_cfg_zero_star": false,
+    "guidance_rescale": 0.0,
+    "crop_bounds": [
+      21,
+      41,
+      41,
+      56
+    ]
+  },
+  "dense": {
+    "guidance_scale": 4.0,
+    "seed": 0,
+    "num_inference_steps": 50,
+    "sub_token_count": 300,
+    "crop_token_count": 300,
+    "use_sparse_sub_branch": false,
+    "pe_exchange_region": "bbox",
+    "sub_id_spatial_mode": "global",
+    "use_cfg_zero_star": false,
+    "guidance_rescale": 0.0,
+    "crop_bounds": [
+      21,
+      41,
+      41,
+      56
+    ]
+  },
+  "images_sha256": {
+    "sparse_main.png": "d6e0d5c2cbce57eea7fc3506c4870dc860c81fd434acbd2a6ea279a35c1b8d85",
+    "sparse_sub.png": "363bd8078b03d144c09223413934da8fad554ed4e046ed152af24d28373e77b7",
+    "dense_main.png": "d8bac9b49f5b173b89f4d8b14794559ce1cf52b535d48916bddf45fe693c0f66",
+    "dense_sub.png": "84853d7d2f9ec76d94631b4f41f08b262d98e39cbb5325ecb863c203c9659b27",
+    "input_background.png": "ed10cd22a88da4f6e5bab34eda7be08d48160d8c2fd628628ae6a42305172506",
+    "input_mask.png": "1f1a9ca62ec355944f9ff74ef1ae8837d1fe80368cd1e0b8792a90bba69702f5",
+    "input_subject_01.png": "f9a628ab45c0022db24ac9b029804ae1f5a5a2944e9d500c97268090de7b082e",
+    "input_subject_02.png": "276adc920ba284efeb4a6ebddf4f86950cf8cbf6e84f9bdb4b8256546ed0eb48"
+  },
+  "ai_generated_outputs": true,
+  "new_generation": false,
+  "input_source": "custom_upload",
+  "changes": "Both sub-token support and PE candidate pairs change from bbox-wide to mask-only; not pure token-count ablation."
+}

@@ -10,6 +10,18 @@
 - **Discrete Geometric Gate**: Token-level PE routing that lets subject tokens borrow background-anchored coordinates near fusion regions or keep subject-centric coordinates for geometry freedom
 - **Original Qwen implementation**: 13.31M GateBlock parameters (vs ~1.13B for ControlNet-style branches); this count is not the size of the FLUX full-transformer checkpoints.
 
+## Method
+
+![BRIDGE method diagram](assets/method.png)
+
+**The method is shared by Qwen and FLUX:** a main path and an independently
+denoised sub path interact through learned discrete positional-encoding routing.
+The paper figure shows the Qwen implementation labels. **Qwen uses LoRA + gate
+training; FLUX uses full-transformer + gate training.** The FLUX subject-driven
+extension additionally supports generated subject-reference image conditions.
+The figure's Qwen-VL, backbone and 13.3M annotations are implementation-specific,
+not claims about the FLUX encoder or total fine-tuned parameter count.
+
 ## FLUX.2 Klein 9B update
 
 BRIDGE now also includes two trained **FLUX.2 Klein 9B** variants, using the same
@@ -25,7 +37,41 @@ Generation uses **50 inference steps**. The FLUX weights are full transformer
 states, not Qwen-compatible LoRA adapters, and carry the FLUX Non-Commercial
 License. The original Qwen code and weight file remain available unchanged.
 
-The sections below describe the original **Qwen** release.
+### BBox-trained weights with cropped sub tokens
+
+At inference, the **same BBox-trained FLUX checkpoint** can retain the full bbox
+sub grid or keep only mask-selected sub tokens. PE candidate pairs are changed
+consistently from bbox-wide to mask-only. This controls the generated sub support
+without retraining; main still generates the full image. These comparisons
+change both sub support and PE candidate support, not only token count.
+
+Below are existing AI-generated examples, each at **50 steps, CFG=4, seed=0,
+no latent blending**. Left: cropped/sparse sub inference. Right: dense bbox
+inference with the same BBox weights. They are not comparisons of two trained
+checkpoints. Internal-dataset examples are excluded from this gallery.
+
+| Cropped sub (BBox weights) | Full bbox sub (same weights) |
+|---|---|
+| ![Cropped sub main, 618 tokens](flux2/examples/bbox-token-control/bbox_weights_sparse_cfg4_20260910_a/sparse_main.png) | ![Dense sub main, 1302 tokens](flux2/examples/bbox-token-control/bbox_weights_sparse_cfg4_20260910_a/dense_main.png) |
+| ![Cropped sub main, 222 tokens](flux2/examples/bbox-token-control/20260910_062504_041200_upload_custom_b62404d86a8d_64eb2886/sparse_main.png) | ![Dense sub main, 300 tokens](flux2/examples/bbox-token-control/20260910_062504_041200_upload_custom_b62404d86a8d_64eb2886/dense_main.png) |
+| ![Cropped sub main, 677 tokens](flux2/examples/bbox-token-control/20260910_152028_209813_upload_custom_b62404d86a8d_77f7824a/sparse_main.png) | ![Dense sub main, 1178 tokens](flux2/examples/bbox-token-control/20260910_152028_209813_upload_custom_b62404d86a8d_77f7824a/dense_main.png) |
+
+**[All six custom-input comparisons, generated Sub images, masks, prompts and provenance](flux2/examples/bbox-token-control/README.md)**.
+These are qualitative examples, not a quantitative benchmark.
+
+### Run and train FLUX
+
+- [Environment, model downloads and Gradio](flux2/README.md)
+- [Same-weight BBox versus cropped-sub Gradio mode](flux2/README.md#bbox-weight-protocol-comparison)
+- [Complete FLUX data/cache/full-training/export instructions](flux2/TRAINING.md)
+- [Subject-condition dataset extension](https://huggingface.co/datasets/PANDATREE/BRIDGE/tree/main/subject_condition)
+
+The dataset extension adds **30,926 subject conditions generated with
+Qwen-Image-Edit-2511**, preserving the FLUX split of **27,834 train / 3,092 test**.
+It also supplies missing crop/background/mask dependencies. Original target
+images remain separately obtained as explained in the dataset and training docs.
+
+The remaining sections describe the original **Qwen** release.
 
 ## Download
 

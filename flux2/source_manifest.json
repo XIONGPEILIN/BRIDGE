@@ -43,8 +43,8 @@
     },
     "gradio_subject_compare_app.py": {
       "source_sha256": "028b56c6bc09f9b566fe96054ccbb1517c211e5f581ca9a9fd94bb22e06e299b",
-      "release_sha256": "556376ece22b397ee1e487954a4cdb8cd00e723c0a5f90320d5b62fcd7a3be01",
-      "changes": "Disable host-specific Docker-stop defaults only"
+      "release_sha256": "0af0df48dcb1b41e951c0605bf86254dd15fc7f0545bf9758d2202afc16e9076",
+      "changes": "Disable host Docker defaults; add same-weight protocol labels"
     },
     "gradio_subject_inputs.py": {
       "source_sha256": "aa6a3601b5fa550d5535c6c5bb9c1a2a8a6190c367ce5baf94f4898cf837c284",

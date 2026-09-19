@@ -1,0 +1,27 @@
+compute_environment: LOCAL_MACHINE
+debug: false
+distributed_type: DEEPSPEED
+downcast_bf16: 'no'
+# Inline ZeRO-1 (NO separate deepspeed_config_file): a json file makes accelerate reject
+# mixed_precision / gradient_accumulation_steps set anywhere else, but the training script
+# passes both to Accelerator(...). Inline config lets the Accelerator args be the source of
+# truth (reconciled with this yaml) — no "config_file ignores these vars" ValueError.
+deepspeed_config:
+  zero_stage: 1
+  zero3_init_flag: false
+# NO dynamo_config here: accelerate's DeepSpeed auto-compile (engine.compile) did not fire
+# max-autotune in practice. The training script instead calls engine.compile() explicitly when
+# launched with --deepspeed_compile. Leaving dynamo out avoids a double / wrong-mode compile.
+enable_cpu_affinity: true
+gpu_ids: all
+machine_rank: 0
+main_training_function: main
+mixed_precision: bf16
+num_machines: 1
+num_processes: 8
+rdzv_backend: static
+same_network: true
+tpu_env: []
+tpu_use_cluster: false
+tpu_use_sudo: false
+use_cpu: false

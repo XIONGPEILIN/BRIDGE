@@ -12,6 +12,8 @@ def main() -> None:
     parser.add_argument("--base-model", default="black-forest-labs/FLUX.2-klein-base-9B")
     parser.add_argument("--sparse-gpu", default="0")
     parser.add_argument("--bbox-gpu", default="1")
+    parser.add_argument("--bbox-protocol-compare", action="store_true",
+                        help="Load BBox weights in both lanes; compare mask-sparse versus dense-bbox inference.")
     parser.add_argument("--output-dir", type=Path, default=Path("outputs/flux2"))
     parser.add_argument("--server-name", default="127.0.0.1")
     parser.add_argument("--server-port", type=int, default=7860)
@@ -24,6 +26,8 @@ def main() -> None:
         "sparse": root / "sparse-mask" / "checkpoint-1400",
         "bbox": root / "dense-bbox" / "checkpoint-1400",
     }
+    if args.bbox_protocol_compare:
+        checkpoints['sparse'] = checkpoints['bbox']
     for checkpoint in checkpoints.values():
         for name in ("eval_conversion_manifest.json", "transformer/config.json",
                      "transformer/diffusion_pytorch_model.safetensors.index.json"):
@@ -47,7 +51,8 @@ def main() -> None:
     try:
         runtime.start()
         runtime.wait_until_ready()
-        demo = build_demo(runtime, prompts, no_mask_full_sub=True)
+        demo = build_demo(runtime, prompts, no_mask_full_sub=True,
+                          bbox_protocol_compare=args.bbox_protocol_compare)
         demo.launch(server_name=args.server_name, server_port=args.server_port,
                     allowed_paths=[str(output)])
     finally:
