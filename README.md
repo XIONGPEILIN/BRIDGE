@@ -233,7 +233,7 @@ bash training/Qwen-Image-Edit-2511.sh
   title={BRIDGE: Background Routing and Isolated Discrete Gating for Coarse-Mask Local Editing},
   author={Peilin Xiong, Honghui Yuan, Junwen Chen, Keiji Yanai},
   journal={arXiv preprint arXiv:2605.07846},
-  year={2025}
+  year={2026}
 }
 ```
 
